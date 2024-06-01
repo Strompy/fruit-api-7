@@ -1,0 +1,26 @@
+<h1>Name: <%= @fruit[:name] %></h1>
+<h3>Family: <%= @fruit[:family] %></h3>
+<h3>Order: <%= @fruit[:order] %></h3>
+<h3>Genus: <%= @fruit[:genus] %></h3>
+
+<h2>Nutrition value:</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Calories</th>
+            <th>Fat</th>
+            <th>Sugar</th>
+            <th>Carbohydrates</th>
+            <th>Protein</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><%= @fruit[:calroies] %></td>
+            <td><%= @fruit[:fat] %></td>
+            <td><%= @fruit[:sugar] %></td>
+            <td><%= @fruit[:carbohydrates] %></td>
+            <td><%= @fruit[:protein] %></td>
+        </tr>
+    </tbody>
+</table>
