@@ -1,16 +1,14 @@
 class FruitsController < ApplicationController
-    def index
-    binding.pry    
-    end
+    def index; end
 
     def create
-        # Call the service
         @fruit = FruityViceService.search_by_name(params[:search])
-        binding.pry
-        # then maybe create a fruit model
-
-
 
         render :index
+    end
+
+    def nutritional
+        @fruit_name = params[:name]
+        @fruits = FruityViceService.search_by_calories(params[:nutritions][:calories])
     end
 end
