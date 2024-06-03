@@ -1,0 +1,5 @@
+<h1>Fruits with similar calories as <%= @fruit_name.underscore.humanize %></h1>
+
+<% @fruits.each do |fruit| %>
+    <p><%= fruit[:name].underscore.humanize %></p>
+<% end %>
