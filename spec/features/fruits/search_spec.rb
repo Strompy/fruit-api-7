@@ -30,5 +30,25 @@ RSpec.describe "/fruits", type: :feature do
             expect(page).to have_content('1')
 
         end
+
+        it 'link to fruits with similar nutritional value' do
+            visit root_path
+            fill_in 'search', with: 'Banana'
+            click_on 'Search'
+
+            expect(current_path).to eq(fruits_path)
+            click_on 'Find Similar Fruits by Nutrition Value'
+
+            expect(current_path).to eq(nutritional_fruits_path)
+            expect(page).to have_content('Fruits with similar calories as Banana')
+
+            expect(page).to have_content('Apple')
+# I am taken to a "/fruits/nutritional" page
+# Where I see the names of fruits that have a similar nutritional value
+
+# # Hint: choose a specific nutritional key (e.g. "calories" or "fat" or "sugar"), and use the min/max API endpoints
+
+
+        end
     end
 end

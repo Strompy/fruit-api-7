@@ -3,5 +3,9 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "welcome#index"
-  resources :fruits, only: [:index, :create]
+  resources :fruits, only: [:index, :create] do
+    collection do
+      get :nutritional
+    end
+  end
 end
