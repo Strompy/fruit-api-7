@@ -1,4 +1,6 @@
 class FruityViceService
+    class FruitNotFound < StandardError; end
+
     def self.search_by_name(query)
         search_by_url("api/fruit/#{query}")
     end
@@ -11,6 +13,7 @@ class FruityViceService
 
     def self.search_by_url(url)
         response = conn.get(url)
+        raise FruityViceService::FruitNotFound if response.status == 404
         JSON.parse(response.body, symbolize_names: true)
     end
 
